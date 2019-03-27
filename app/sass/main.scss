@@ -1,0 +1,101 @@
+@import "./utility/_vars.scss";
+@import "./utility/_mixins.scss";
+@import "./utility/_base.scss";
+@import "./utility/normalize.scss";
+
+.developments {
+  margin: 100px 0;
+  padding: 50px;
+  text-align: center;
+  background-color: $white;
+
+  &__title {
+    margin: 0 0 36px;
+    font-size: $font-size--largest;
+    color: $green;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 50px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    background-color: $grey--lighten;
+    border: 1px solid $grey--light;
+  }
+
+  &__item-content {
+    position: relative;
+    padding: 20px 20px 17px;
+    text-align: left;
+  }
+
+  &__feature {
+    position: absolute;
+    top: -37px;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 8px 10px 5px;
+    font-size: $font-size--smallest;
+    color: $white;
+
+    &--independent {
+      background-color: $seagreen;
+    }
+
+    &--support {
+      background-color: $orange;
+    }
+  }
+
+  &__item-title {
+    margin: 0;
+    font-size: $font-size--large;
+    font-weight: 700;
+  }
+
+  &__item-address {
+    margin: 0 0 15px;
+  }
+
+  &__item-text {
+    margin: 0 0 7px;
+  }
+
+  &__item-type {
+    margin: 0;
+    font-size: $font-size--small;
+  }
+
+  &__btn {
+    padding: 12px 27px;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    background-color: transparent;
+    border: 1px solid $grey--light;
+    border-radius: 25px;
+    transition: background 0.4s ease-in;
+
+    &:hover,
+    &:focus {
+      background-color: $grey--light;
+
+      svg {
+        transform: translateX(8px);
+      }
+    }
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 0 0 15px;
+      transition: transform 0.4s ease-in;
+    }
+  }
+}
