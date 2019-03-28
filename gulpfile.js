@@ -17,7 +17,7 @@ var path = {
   scssPattern: "/**/*.{scss,sass}",
   svgPattern: "/*.svg",
   htmlPattern: "/**/!(_)*.html",
-  jsPattern: "/**/!(_)*.js"
+  jsPattern: "/**/*.js"
 };
 
 /* Packages */
@@ -81,17 +81,17 @@ gulp.task("css", gulp.series("sass-styles"));
 
 // JavaScript
 gulp.task("js", () => {
-  return gulp.src(path.sourcePath + path.jsPath + path.jsModulesPath + path.jsPattern)
+  return gulp.src(path.sourcePath + path.jsPath + path.jsPattern)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(gulp.dest(path.buildPath + path.jsPath + path.jsModulesPath))
+    .pipe(gulp.dest(path.buildPath + path.jsPath))
     .pipe(uglify())
     .pipe(rename({
       suffix: ".min",
       extname: ".js"
     }))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest(path.buildPath + path.jsPath + path.jsModulesPath))
+    .pipe(gulp.dest(path.buildPath + path.jsPath))
     .pipe(reload({ stream: true }));
 });
 
@@ -133,7 +133,7 @@ gulp.task("build", gulp.series("copy", "compress", "html", "css", "js"));
 // Watch changes
 gulp.task("watch", () => {
   gulp.watch(path.sourcePath + path.scssPath + path.scssPattern, gulp.series("css"));
-  gulp.watch(path.sourcePath + path.jsPath + path.jsModulesPath + path.jsPattern, gulp.series("js"));
+  gulp.watch(path.sourcePath + path.jsPath + path.jsPattern, gulp.series("js"));
   gulp.watch(path.sourcePath + path.htmlPattern, gulp.series("html"));
 });
 
