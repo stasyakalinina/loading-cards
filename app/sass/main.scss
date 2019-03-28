@@ -9,10 +9,19 @@
   text-align: center;
   background-color: $white;
 
+  @include mq(570) {
+    padding: 25px;
+  }
+
   &__title {
     margin: 0 0 36px;
     font-size: $font-size--largest;
     color: $green;
+
+    @include mq(570) {
+      margin: 0 0 18px;
+      font-size: $font-size--larger;
+    }
   }
 
   &__list {
@@ -21,11 +30,34 @@
     margin: 0 0 50px;
     padding: 0;
     list-style: none;
+
+    @include mq(769) {
+      display: block;
+    }
+
+    @include mq(570) {
+      margin: 0 0 20px;
+    }
   }
 
   &__item {
+    width: 32%;
     background-color: $grey--lighten;
     border: 1px solid $grey--light;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 10px rgba($color_black, 0.2);
+    }
+
+    @include mq(769) {
+      width: 100%;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__item-link {
+    color: inherit;
   }
 
   &__item-content {
