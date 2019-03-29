@@ -3,8 +3,8 @@
 /* Path variables */
 
 var path = {
-  sourcePath: "./app",
-  buildPath: "./dist",
+  sourcePath: "./source",
+  buildPath: "./build",
   scssPath: "/sass",
   cssPath: "/css",
   jsPath: "/js",
@@ -85,7 +85,7 @@ gulp.task("js", () => {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(gulp.dest(path.buildPath + path.jsPath))
-    
+
     .pipe(reload({ stream: true }));
 });
 
