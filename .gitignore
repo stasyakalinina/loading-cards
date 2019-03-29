@@ -8,5 +8,5 @@
 node_modules/
 npm-debug.*
 src/css/*.css
-dist/
+build/
 Thumbs.db

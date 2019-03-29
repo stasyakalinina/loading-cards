@@ -85,7 +85,13 @@ gulp.task("js", () => {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(gulp.dest(path.buildPath + path.jsPath))
-
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: ".min",
+      extname: ".js"
+    }))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest(path.buildPath + path.jsPath))
     .pipe(reload({ stream: true }));
 });
 
